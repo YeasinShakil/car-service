@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -28,9 +29,9 @@ const Header = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Sigin Up</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Login
+                            <Nav.Link ><Link to='/register'>Sigin Up</Link></Nav.Link>
+                            <Nav.Link eventKey={2}>
+                            <Link to='/login'>Login</Link>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
