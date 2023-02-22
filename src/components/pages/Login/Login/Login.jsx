@@ -16,8 +16,13 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
+      let errorElement;
+
       if(user) {
         navigate('/')
+      }
+      if(error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
       }
 
       const handleSubmit = async (event) => {
@@ -43,6 +48,7 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            {errorElement}
          
             <p>New to Genius Car? <Link to="/register" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
             <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none'>Reset Password</button> </p>
