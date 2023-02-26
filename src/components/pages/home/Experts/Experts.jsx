@@ -5,7 +5,7 @@ import expert3 from '../../../../images/experts/expert-3.jpg';
 import expert4 from '../../../../images/experts/expert-4.jpg';
 import expert5 from '../../../../images/experts/expert-5.jpg';
 import expert6 from '../../../../images/experts/expert-6.png';
-import Expert from './Expert';
+import Expert from '../Expert/Expert';
 
 
 const Experts = () => {

@@ -16,14 +16,15 @@ const Header = () => {
     }
     return (
         
-            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+            <Navbar collapseOnSelect expand="lg" sticky='top' bg="primary" variant="dark">
                 <Container>
                     <Navbar.Brand><Link to='/' className='text-white text-decoration-none'>Car-Service</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to='/feature' className='text-white text-decoration-none'>Features</Link></Nav.Link>
-                            <Nav.Link><Link to='/price' className='text-white text-decoration-none'>Pricing</Link></Nav.Link>
+                            <Nav.Link href="home#service"><Link to='/service' className='text-white text-decoration-none'>Service</Link></Nav.Link>
+                            <Nav.Link href="home#expert"><Link to='/expert' className='text-white text-decoration-none'>Expert</Link></Nav.Link>
+                            <Nav.Link href="home#about"><Link to='/about' className='text-white text-decoration-none'>About</Link></Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">

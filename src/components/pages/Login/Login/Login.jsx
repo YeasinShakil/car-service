@@ -1,14 +1,18 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase';
+import Loading from '../../../shared/loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
     const [
         signInWithEmailAndPassword,
         user,
@@ -16,10 +20,15 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
+      let from = location.state?.from?.pathname || '/'
+
       let errorElement;
+      if(loading) {
+        <Loading></Loading>
+    }
 
       if(user) {
-        navigate('/')
+        navigate(from, {replace: true})
       }
       if(error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
@@ -37,7 +46,12 @@ const Login = () => {
       const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
       const resetPassword = async() => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email)
+        if(email){
+          await sendPasswordResetEmail(email)
+        toast('Sent email')
+        } else {
+          toast('please enter your email')
+        }
 
       } 
     return (
@@ -58,9 +72,10 @@ const Login = () => {
             {errorElement}
          
             <p>New to Genius Car? <Link to="/register" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
-            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none'>Reset Password</button> </p>
+            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
             
             <SocialLogin></SocialLogin>
+            <ToastContainer />
         </div>
     );
 };
