@@ -5,7 +5,9 @@ import expert3 from '../../../../images/experts/expert-3.jpg';
 import expert4 from '../../../../images/experts/expert-4.jpg';
 import expert5 from '../../../../images/experts/expert-5.jpg';
 import expert6 from '../../../../images/experts/expert-6.png';
-import Expert from '../Expert/Expert';
+import PageTitle from '../../../shared/page title/PageTitle';
+import Expert from '../../Expert/Expert';
+
 
 
 const Experts = () => {
@@ -19,6 +21,7 @@ const Experts = () => {
     ]
     return (
         <div id="experts" className='container'>
+            
         <h2 className='text-primary text-center mt-5'>Our Experts</h2>
         <div className="row">
             {
@@ -28,6 +31,7 @@ const Experts = () => {
                 ></Expert>)
             }
         </div>
+        {/* <PageTitle title='expert'></PageTitle> */}
     </div>
     );
 };

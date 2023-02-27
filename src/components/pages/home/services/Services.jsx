@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardGroup, Col, Row } from 'react-bootstrap';
+
+import PageTitle from '../../../shared/page title/PageTitle';
 import Service from '../Home/service/Service';
 import './services.css'
 
@@ -14,6 +15,7 @@ const Services = () => {
     // console.log(services)
     return (
         <div id="services" className='container'>
+            {/* <PageTitle title='service'></PageTitle> */}
             <div className="row">
                 <h1 className='text-primary text-center mt-5'> Our Services</h1>
                 <div className="services-container">
