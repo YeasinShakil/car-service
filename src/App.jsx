@@ -13,6 +13,8 @@ import ServiceDetail from './components/pages/serviceDetail/ServiceDetail';
 import Footer from './components/shared/footer/Footer';
 import NotFound from './components/shared/NotFound/NotFound';
 import Expert from './components/pages/home/Experts/Experts';
+import AddService from './components/pages/addService/AddService';
+import ManageService from './components/pages/manageService/ManageService';
 
 function App() {
 
@@ -32,6 +34,16 @@ function App() {
         <Route path='/checkout' element={
           <RequireAuth>
             <Checkout></Checkout>
+          </RequireAuth>
+        }></Route>
+        <Route path='/addservice' element={
+          <RequireAuth>
+            <AddService></AddService>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manageservice' element={
+          <RequireAuth>
+            <ManageService></ManageService>
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

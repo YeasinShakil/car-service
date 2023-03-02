@@ -5,7 +5,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const { name, img, description, price, id } = service;
+    const { name, img, description, price, _id } = service;
     const navigate = useNavigate();
     const navigateToServiceDetail = id =>{
         navigate(`/service/${id}`);
@@ -23,7 +23,7 @@ const Service = ({ service }) => {
                         <Card.Text>
                             {description}
                         </Card.Text>
-                        <Button onClick={() => navigateToServiceDetail(id)} variant="primary">Book: {name}</Button>
+                        <Button onClick={() => navigateToServiceDetail(_id)} variant="primary">Book: {name}</Button>
                     </Card.Body>
                     <Card.Footer>
                         <small className="text-muted">Last updated 3 mins ago</small>

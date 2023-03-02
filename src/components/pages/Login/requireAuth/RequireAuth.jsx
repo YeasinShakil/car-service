@@ -8,7 +8,7 @@ const RequireAuth = ({children}) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
 
-    console.log('user=====>>>', user)
+    // console.log('user=====>>>', user)
     if(loading){
         return <Loading></Loading>
     }
